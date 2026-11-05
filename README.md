@@ -1,6 +1,6 @@
 # NutritionPlan
 
-An Electron desktop application for CSC2923. Food lookup searches USDA FoodData Central SR Legacy records and scales six nutrient values to the portion eaten. Food diary stores dated intake records and their nutrient-target suggestions in Local Storage.
+An Electron desktop application for tracking micronutrients in common foods. Food lookup searches USDA FoodData Central SR Legacy records and scales six nutrient values to the portion eaten. Food diary stores dated intake records and their nutrient-target suggestions in Local Storage.
 
 ## Run from source
 
