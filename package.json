@@ -1,0 +1,20 @@
+{
+  "name": "nutritionplan",
+  "productName": "NutritionPlan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A desktop food lookup and intake diary for CSC2923.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test",
+    "package:win": "electron-packager . NutritionPlan --platform=win32 --arch=x64 --out=dist --overwrite --ignore=^/test"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "45.2.3"
+  }
+}

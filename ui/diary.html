@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>Food diary | NutritionPlan</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="diary.mjs"></script>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Main navigation"><strong>NutritionPlan</strong><a href="index.html">Food lookup</a><a href="diary.html" aria-current="page">Food diary</a></nav>
+    </header>
+    <main>
+        <h1>Food diary</h1>
+        <p class="intro">Review your intake for a day, adjust a portion or remove an entry.</p>
+        <section class="panel diaryhead">
+            <label>Show intake date
+                <input type="date" id="filter">
+            </label>
+            <div class="total"><span>Recorded energy</span><strong id="total">—</strong><small id="count"></small></div>
+        </section>
+        <div class="sectionhead">
+            <h2>Intake records</h2><a href="index.html">+ Add a food</a></div>
+        <p id="status" class="status" role="status"></p>
+        <div id="records"></div>
+        <dialog id="editor">
+            <form id="editForm" novalidate>
+                <h2>Edit intake</h2>
+                <p id="editName"></p>
+                <div class="row">
+                    <label>Portion (g)
+                        <input id="grams" type="number" min="0.1" max="5000" step="0.1" value="100" required>
+                    </label>
+                    <label>Intake date
+                        <input type="date" id="date" required>
+                    </label>
+                    <label>Meal
+                        <select id="meal"></select>
+                    </label>
+                </div>
+                <label>Nutrient target <span>per 100 g</span>
+                    <select id="goal"></select>
+                </label>
+                <div class="actions">
+                    <button>Save changes</button>
+                    <button type="button" class="secondary" id="cancelEdit">Cancel</button>
+                </div>
+                <p id="editStatus" role="status"></p>
+            </form>
+        </dialog>
+        <dialog id="confirm">
+            <h2>Delete intake?</h2>
+            <p id="deleteName"></p>
+            <div class="actions">
+                <button type="button" id="deleteYes">Delete record</button>
+                <button type="button" id="deleteNo" class="secondary">Keep record</button>
+            </div>
+            <p id="deleteStatus" role="status"></p>
+        </dialog>
+    </main>
+    <footer>
+        <div>NutritionPlan</div>
+    </footer>
+</body>
+
+</html>

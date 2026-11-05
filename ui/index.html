@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>Food lookup | NutritionPlan</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="lookup.mjs"></script>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Main navigation"><strong>NutritionPlan</strong><a href="index.html" aria-current="page">Food lookup</a><a href="diary.html">Food diary</a></nav>
+    </header>
+    <main>
+        <h1>Food lookup</h1>
+        <p class="intro">Find a food, check its nutrients and log the portion you ate.</p>
+        <section class="panel">
+            <form id="searchForm" novalidate>
+                <div class="row searchrow">
+                    <label>Food name
+                        <input type="search" id="query" maxlength="80" placeholder="e.g. banana" required>
+                    </label>
+                    <button>Search foods</button>
+                </div>
+            </form>
+            <div class="examples">Try
+                <button type="button" data-query="banana">banana</button>
+                <button type="button" data-query="lentils">lentils</button>
+                <button type="button" data-query="rice">rice</button>
+            </div>
+            <p id="searchStatus" class="status" role="status">Search USDA FoodData Central for nutrient values.</p>
+        </section>
+        <section id="results" hidden>
+            <h2>Search results</h2>
+            <div class="row two">
+                <label>Choose a food
+                    <select id="foods"></select>
+                </label>
+                <label>Nutrient target <span>per 100 g</span>
+                    <select id="goal"></select>
+                </label>
+            </div>
+            <div class="suggest">
+                <p id="suggestion"></p>
+                <button type="button" id="useMatch" class="link" hidden></button>
+            </div>
+            <form id="entry" novalidate>
+                <h2 id="foodName"></h2>
+                <p id="source" class="muted"></p>
+                <div class="row">
+                    <label>Portion (g)
+                        <input id="grams" type="number" min="0.1" max="5000" step="0.1" value="100" required>
+                    </label>
+                    <label>Intake date
+                        <input type="date" id="date" required>
+                    </label>
+                    <label>Meal
+                        <select id="meal"></select>
+                    </label>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nutrient</th>
+                            <th>Per 100 g</th>
+                            <th>Your portion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nutrients"></tbody>
+                </table>
+                <button>Save to food diary</button> <a href="diary.html" class="next">Open food diary</a>
+                <p id="saveStatus" role="status" class="status"></p>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div>NutritionPlan</div>
+    </footer>
+</body>
+
+</html>
